@@ -1,0 +1,21 @@
+# AquaConnect is static HTML, CSS, JS, and JSON.
+# Netlify publishes this folder as-is. No build step.
+
+[build]
+  publish = "."
+
+# /home serves home.html.
+[build.processing.html]
+  pretty_urls = true
+
+[[redirects]]
+  from = "/healthz"
+  to = "/healthz.txt"
+  status = 200
+  force = true
+
+# Unknown paths show the login page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
